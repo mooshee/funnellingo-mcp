@@ -69,3 +69,8 @@ The consumer skills, documentation and connector configurations use the
 [own notice](https://github.com/mooshee/funnellingo-mcp/blob/v0.2.0/assets/LICENSE).
 The private application and existing account adapters are not included or
 relicensed by this package.
+
+
+---
+
+Built and maintained by **[Moosh Works](https://mooshworks.com)** ([https://mooshworks.com](https://mooshworks.com)).
