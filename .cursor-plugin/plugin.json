@@ -1,0 +1,18 @@
+{
+  "author": {
+    "name": "Moosh Works LLC"
+  },
+  "description": "Translate website pages",
+  "homepage": "https://funnellingo.com",
+  "keywords": [
+    "website",
+    "translation",
+    "localization",
+    "mcp"
+  ],
+  "mcpServers": "./.cursor/mcp.json",
+  "name": "funnellingo",
+  "repository": "https://github.com/mooshee/funnellingo-mcp",
+  "skills": "./skills/funnellingo",
+  "version": "0.2.0"
+}

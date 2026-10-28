@@ -1,0 +1,11 @@
+{
+  "contextFileName": "research-instructions.md",
+  "description": "Translate website pages",
+  "mcpServers": {
+    "funnellingo": {
+      "httpUrl": "https://api.funnellingo.com/agent/mcp"
+    }
+  },
+  "name": "funnellingo",
+  "version": "0.2.0"
+}

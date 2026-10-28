@@ -1,0 +1,20 @@
+{
+  "authentication": {
+    "authorization_servers": [
+      "https://api.funnellingo.com"
+    ],
+    "openai_client_mode": "cimd",
+    "resource": "https://api.funnellingo.com",
+    "scopes": [
+      "read",
+      "setup",
+      "draft",
+      "publish"
+    ],
+    "type": "oauth"
+  },
+  "endpoint": "https://api.funnellingo.com/agent/mcp",
+  "protocol_version": "2026-07-28",
+  "schema_version": 1,
+  "transport": "streamable-http"
+}

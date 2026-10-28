@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "funnellingo": {
+      "type": "streamable-http",
+      "url": "https://api.funnellingo.com/agent/mcp"
+    }
+  }
+}

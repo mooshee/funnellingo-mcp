@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "funnellingo": {
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "client": {
+              "mode": "cimd"
+            },
+            "type": "oauth"
+          }
+        }
+      },
+      "type": "streamable-http",
+      "url": "https://api.funnellingo.com/agent/mcp"
+    }
+  }
+}

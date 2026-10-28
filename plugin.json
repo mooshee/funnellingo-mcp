@@ -1,0 +1,70 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "Moosh Works LLC",
+    "url": "https://funnellingo.com"
+  },
+  "description": "Translate website pages",
+  "extensions": {
+    "com.openai": {
+      "categories": [
+        "Productivity",
+        "Business"
+      ],
+      "displayName": "FunnelLingo",
+      "interface": {
+        "brandColor": "#25604C",
+        "capabilities": [],
+        "category": "Business & Operations",
+        "composerIcon": "./assets/icon.png",
+        "defaultPrompt": [
+          "Show me what FunnelLingo can do for my connected website.",
+          "Review the Spanish translations for my homepage.",
+          "Prepare a Spanish translation update for my review."
+        ],
+        "developerName": "Moosh Works LLC",
+        "displayName": "FunnelLingo",
+        "logo": "./assets/icon.png",
+        "longDescription": "Translate website pages",
+        "privacyPolicyURL": "https://funnellingo.com/privacy",
+        "shortDescription": "Translate website pages",
+        "supportURL": "https://funnellingo.com/support",
+        "termsOfServiceURL": "https://funnellingo.com/terms",
+        "websiteURL": "https://funnellingo.com"
+      },
+      "privacyPolicy": "https://funnellingo.com/privacy",
+      "termsOfService": "https://funnellingo.com/terms"
+    }
+  },
+  "homepage": "https://funnellingo.com",
+  "interface": {
+    "brandColor": "#25604C",
+    "capabilities": [],
+    "category": "Business & Operations",
+    "composerIcon": "./assets/icon.png",
+    "defaultPrompt": [
+      "Show me what FunnelLingo can do for my connected website.",
+      "Review the Spanish translations for my homepage.",
+      "Prepare a Spanish translation update for my review."
+    ],
+    "developerName": "Moosh Works LLC",
+    "displayName": "FunnelLingo",
+    "logo": "./assets/icon.png",
+    "longDescription": "Translate website pages",
+    "privacyPolicyURL": "https://funnellingo.com/privacy",
+    "shortDescription": "Translate website pages",
+    "supportURL": "https://funnellingo.com/support",
+    "termsOfServiceURL": "https://funnellingo.com/terms",
+    "websiteURL": "https://funnellingo.com"
+  },
+  "keywords": [
+    "website",
+    "translation",
+    "localization",
+    "mcp"
+  ],
+  "license": "MIT-0",
+  "name": "funnellingo",
+  "repository": "https://github.com/mooshee/funnellingo-mcp",
+  "version": "0.2.0"
+}

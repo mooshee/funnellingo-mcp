@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "description": "Translate website pages",
+    "version": "0.2.0"
+  },
+  "name": "funnellingo",
+  "owner": {
+    "email": "daniel@mooshworks.com",
+    "name": "Moosh Works LLC"
+  },
+  "plugins": [
+    {
+      "author": {
+        "email": "daniel@mooshworks.com",
+        "name": "Moosh Works LLC"
+      },
+      "description": "Translate website pages",
+      "homepage": "https://funnellingo.com",
+      "keywords": [
+        "website",
+        "translation",
+        "localization",
+        "mcp"
+      ],
+      "license": "MIT-0",
+      "name": "funnellingo",
+      "repository": "https://github.com/mooshee/funnellingo-mcp",
+      "source": "./",
+      "version": "0.2.0"
+    }
+  ]
+}

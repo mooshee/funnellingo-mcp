@@ -1,0 +1,378 @@
+{
+  "provenance": {
+    "auth_type": "oauth",
+    "endpoint": "https://api.funnellingo.com/agent/mcp",
+    "observed_at": "2026-10-28T14:33:11Z",
+    "protocol_version": "2026-07-28",
+    "response_sha256": "7cc51beb1fa67237d92dd107a112f29c6775c65440177bbd37568fa6b15e7fb3",
+    "scopes": [
+      "read"
+    ]
+  },
+  "schema_version": 1,
+  "tools": [
+    {
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "description": "Inspect the current caller's supported commands and scoped permissions.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "name": "agent_capabilities"
+    },
+    {
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "description": "Start bounded localization work. Publish and restore only create plans; owner decisions are separate. For two languages, publish the first visitor-only, then use one coordinated operation on the last language for the complete hosted set. Continue that saved operation after hosting readiness; do not create competing complete-set reservations. Preserve original idempotency keys when reconciling uncertain work.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "afterUnitId": {
+            "maxLength": 80,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]{1,80}$",
+            "type": "string"
+          },
+          "checkHttp": {
+            "type": "boolean"
+          },
+          "command": {
+            "enum": [
+              "inspect",
+              "discover_pages",
+              "plan_localization",
+              "estimate",
+              "validate_release",
+              "verify_release",
+              "maintain"
+            ],
+            "type": "string"
+          },
+          "coordination": {
+            "additionalProperties": false,
+            "properties": {
+              "hosted": {
+                "enum": [
+                  true
+                ],
+                "type": "boolean"
+              },
+              "indexingIntent": {
+                "enum": [
+                  false
+                ],
+                "type": "boolean"
+              },
+              "mode": {
+                "enum": [
+                  "visitor_then_hosted"
+                ],
+                "maxLength": 19,
+                "minLength": 1,
+                "type": "string"
+              },
+              "version": {
+                "maximum": 1,
+                "minimum": 1,
+                "type": "integer"
+              }
+            },
+            "required": [
+              "version",
+              "mode",
+              "hosted",
+              "indexingIntent"
+            ],
+            "type": "object"
+          },
+          "drafts": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "expectedContextHash": {
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "^[a-f0-9]{64}$",
+                  "type": "string"
+                },
+                "expectedSourceHash": {
+                  "maxLength": 64,
+                  "minLength": 1,
+                  "pattern": "^[a-f0-9]{64}$",
+                  "type": "string"
+                },
+                "unitId": {
+                  "maxLength": 80,
+                  "minLength": 1,
+                  "pattern": "^[A-Za-z0-9_-]{1,80}$",
+                  "type": "string"
+                },
+                "value": {
+                  "maxLength": 4000,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "unitId",
+                "value",
+                "expectedSourceHash",
+                "expectedContextHash"
+              ],
+              "type": "object"
+            },
+            "maxItems": 100,
+            "minItems": 1,
+            "type": "array"
+          },
+          "expectedSelection": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "hostedSnapshotId": {
+            "maxLength": 134,
+            "minLength": 1,
+            "pattern": "^hsnap_[A-Za-z0-9_-]{8,128}$",
+            "type": "string"
+          },
+          "idempotencyKey": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9._:~-]{8,128}$",
+            "type": "string"
+          },
+          "includeHostedSeo": {
+            "type": "boolean"
+          },
+          "limit": {
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "locale": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z]{2,8}(?:-[A-Za-z0-9]{1,8})*$",
+            "type": "string"
+          },
+          "maximumChargeMicros": {
+            "maximum": 9007199254740991,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "projectId": {
+            "maxLength": 80,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_-]{1,80}$",
+            "type": "string"
+          },
+          "unitIds": {
+            "items": {
+              "maxLength": 80,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]{1,80}$",
+              "type": "string"
+            },
+            "maxItems": 100,
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "version": {
+            "maximum": 9007199254740991,
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "command",
+          "projectId",
+          "idempotencyKey"
+        ],
+        "type": "object"
+      },
+      "name": "agent_create_operation"
+    },
+    {
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "description": "Read durable operation state, exact result, and required actions.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 131,
+            "minLength": 1,
+            "pattern": "^op_[A-Za-z0-9_-]{8,128}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "name": "agent_get_operation"
+    },
+    {
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "description": "Read up to 100 durable events after a sequence; pass next as after for catch-up.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "after": {
+            "maximum": 9007199254740991,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "id": {
+            "maxLength": 131,
+            "minLength": 1,
+            "pattern": "^op_[A-Za-z0-9_-]{8,128}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "name": "agent_list_events"
+    },
+    {
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "description": "Resume only server-supported safe states. Does not automatically retry an uncertain side effect.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 131,
+            "minLength": 1,
+            "pattern": "^op_[A-Za-z0-9_-]{8,128}$",
+            "type": "string"
+          },
+          "idempotencyKey": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9._:~-]{8,128}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "idempotencyKey"
+        ],
+        "type": "object"
+      },
+      "name": "agent_resume_operation"
+    },
+    {
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "description": "Request stopping future work. Inspect the returned phase; cancellation is not rollback.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 131,
+            "minLength": 1,
+            "pattern": "^op_[A-Za-z0-9_-]{8,128}$",
+            "type": "string"
+          },
+          "idempotencyKey": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9._:~-]{8,128}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "idempotencyKey"
+        ],
+        "type": "object"
+      },
+      "name": "agent_cancel_operation"
+    },
+    {
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "description": "Read the exact bounded plan and digest for human review.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 133,
+            "minLength": 1,
+            "pattern": "^plan_[A-Za-z0-9_-]{8,128}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "name": "agent_get_plan"
+    },
+    {
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "description": "Read evidence for a publish, verify, or restore operation. Unknown, stale and unrun observations are not success.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "maxLength": 131,
+            "minLength": 1,
+            "pattern": "^op_[A-Za-z0-9_-]{8,128}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "name": "agent_release_evidence"
+    }
+  ]
+}
